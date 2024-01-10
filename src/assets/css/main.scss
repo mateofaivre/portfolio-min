@@ -1,0 +1,17 @@
+@import "_reset";
+@import "_easing";
+@import "_variables";
+@import "_fonts";
+
+@import "_global";
+@import "_layout";
+@import "_transitions";
+@import "_functions";
+@import "_rich-text";
+
+@import "lib/__lenis";
+
+#app {
+	margin: 0 auto;
+	font-weight: normal;
+}

@@ -1,0 +1,27 @@
+{
+  "messages": [
+    {
+      "type": "multiples",
+      "title": "Hey, I'm Matéo! A creative web developer based in Dijon and Lyon.",
+      "classic": "I'm currently experimenting with the web at <a href='https://lesanimals.digital' class='message--link' target='_blank'>Les Animals</a>. Learning design and development at <a href='https://esadd.fr' class='message--link' target='_blank'>ESADD School</a>."
+    },
+    {
+      "type": "classic",
+      "classic": "I work mainly on Wordpress with a theme made to measure for each client. I also use Vue.js sometimes."
+    },
+    {
+      "type": "multiples",
+      "title": "Last project",
+      "classic": "<p><a href='https://vermeille-avocats.com' target='_blank' class='message--link'>Vermeille Avocats</a> strive to offer their clients tailor-made legal solutions that correspond to their client's specific economic needs.</p><p>At Les Animals, we built them a Wordpress site with a theme tailored to their needs. We strived to be innovative while respecting the greatness of their profession.</p>"
+    },
+    {
+      "type": "multiples",
+      "title": "Late thoughts",
+      "classic": "Adopting a slightly nihilistic approach to your work can actually improve your workflow by reducing the fear of criticism. Mind you, I'm not saying that you should work on everything without a care in the world. Rather, it's about freeing yourself from the fear of criticism by embracing the idea that nothing really matters."
+    },
+    {
+      "type": "classic",
+      "classic": "Say hello on <a href='mailto:hello@mateofaivre.fr' class='message--link' target='_blank'>email</a>, <a href='https://twitter.com/mateofaivre' class='message--link' target='_blank'>Twitter</a> or <a href='https://www.linkedin.com/in/mateo-faivre/' class='message--link' target='_blank'>Linkedin</a>."
+    }
+  ]
+}

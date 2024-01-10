@@ -1,0 +1,6 @@
+<svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path class="outside" d="M12.5 23.8666C18.7776 23.8666 23.8666 18.7776 23.8666 12.5C23.8666 6.22233 18.7776 1.1333 12.5 1.1333C6.22233 1.1333 1.1333 6.22233 1.1333 12.5C1.1333 18.7776 6.22233 23.8666 12.5 23.8666Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/>
+    <path class="equal" d="M1.82227 8.71118H23.1778" stroke="currentColor" stroke-width="2" />
+    <path class="equal" d="M1.82227 16.2888H23.1778" stroke="currentColor" stroke-width="2" />
+    <path class="inside" d="M12.4999 23.8666C15.3534 23.8666 17.6666 18.7776 17.6666 12.5C17.6666 6.22233 15.3534 1.1333 12.4999 1.1333C9.64645 1.1333 7.33325 6.22233 7.33325 12.5C7.33325 18.7776 9.64645 23.8666 12.4999 23.8666Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/>
+</svg>

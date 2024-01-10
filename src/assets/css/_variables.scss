@@ -1,0 +1,92 @@
+/*******************************/
+/* -------- Variables -------- */
+/*******************************/
+
+
+/* -------- Colors -------- */
+
+$black: rgb(5, 5, 5);
+$grey: #1E1E1E;
+$light_grey: #5D5D5D;
+$white: #fff;
+$light_white: rgba($white, 0.6);
+$very_light_white: rgba($white, 0.15);
+$ultra_light_white: rgba($white, 0.04);
+$red: #DC483E;
+$blue: #2B2BD9;
+$highlight: $red;
+$gradient: linear-gradient(46.43deg, #F8F8F8 -0.32%, #E8E8E8 26.2%, #F8F8F8 52.32%, #E8E8E8 75.67%);
+
+$focusColor: $white;
+$focusBg: $black;
+
+$gradient_light_grey: #FAFAFA;
+$gradient_dark_grey: #DADADA;
+
+$contentMinH: 100vh;
+
+
+/* -------- Fonts -------- */
+
+$font: 'Magnat Text', serif;
+$fontTitle: 'Magnat Head', serif;
+
+
+/* -------- Grid -------- */
+
+$max_width: 1610px;
+$column_width: 70px;
+$gap_width: 30px;
+$margin_width: 20px;
+
+/* -------- Layout -------- */
+$margin_content: 40px;
+$padding_content: 2.6vw;
+
+// -------- Eases --------
+
+:root {
+	--ease-duration: 0.3s;
+	--margin-content: #{$margin_content};
+}
+
+$easeDefault: var(--ease-duration) $easeOutQuad;
+$easeDefaultType: $easeOutQuad;
+
+
+/* -------- Z-indexes -------- */
+
+$content_depth: 10;
+$footer_depth: 15;
+$header_depth: 20;
+$menu_depth: 40;
+$contact_depth: 50;
+$dl_depth: 30;
+
+
+/* -------- Responsive -------- */
+
+// Desktop
+$mediumMin: 1281px;
+$mediumMax: 1280px;
+
+// Tablet
+$mobileMin: 961px;
+$mobileMax: 960px;
+
+// Smartphones
+$smallMin: 501px;
+$smallMax: 500px;
+
+
+/* -------- Paddings -------- */
+
+:root {
+	@media (min-width: $mobileMin) {
+		--padding: 30px;
+	}
+
+	@media (max-width: $mobileMax) {
+		--padding: 15px;
+	}
+}

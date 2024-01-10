@@ -1,0 +1,22 @@
+.home {
+	margin: 0 auto;
+	max-width: 490px;
+	padding-top: 120px;
+	padding-bottom: 120px;
+
+	@media (min-width: $mobileMin) and (max-width: 1299px) {
+		width: 50%;
+	}
+}
+
+.message__item {
+	margin-bottom: 40px;
+}
+
+@media (max-width: $mobileMax) {
+	.home {
+		max-width: 100%;
+		padding-top: 120px;
+		padding-bottom: 70px;
+	}
+}

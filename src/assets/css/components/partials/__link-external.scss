@@ -1,0 +1,41 @@
+.link__external {
+	display: inline-flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+	transition: transform $easeDefault, color $easeDefault;
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0.46em;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background-color: currentColor;
+	}
+
+	&.link__external--spaced {
+		margin-right: 3px;
+	}
+
+	svg {
+		display: inline-block;
+		margin-left: 5px;
+		width: 10px;
+		height: 10px;
+		transform: rotate(-135deg);
+		transition: transform $easeDefault, opacity $easeDefault;
+
+		@media (min-width: $mobileMin) {
+			margin-top: 1px;
+		}
+	}
+
+
+	@include hover() {
+		svg {
+			transform: translate(2px, -2px) rotate(-135deg) ;
+		}
+	}
+}

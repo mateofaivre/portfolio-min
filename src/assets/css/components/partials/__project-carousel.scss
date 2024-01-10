@@ -1,0 +1,59 @@
+.project__carousel--wrapper {
+	margin-bottom: 48px;
+	border: 1px solid $very_light_white;
+	border-radius: 4px;
+	overflow: hidden;
+
+	&[data-nav-color="light"] {
+		--vc-nav-color-hover: #{$white};
+		--vc-nav-color: #{rgba($white, 0.7)};
+		--vc-pgn-active-color: #{$white};
+		--vc-pgn-background-color: #{rgba($white, 0.3)};
+	}
+}
+
+.project__carousel {
+	cursor: grab;
+	aspect-ratio: 16/9;
+
+	&.is-dragging {
+		cursor: grabbing;
+	}
+
+	&:deep(.carousel__viewport), &:deep(.carousel__track), &:deep(.image--wrapper) {
+		aspect-ratio: inherit;
+	}
+
+	&:deep(.carousel__pagination) {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&:deep(.carousel__prev), &:deep(.carousel__next) {
+		transition: color $easeDefault;
+
+		&.carousel__next--disabled, &.carousel__prev--disabled {
+			color: var(--vc-nav-color);
+		}
+	}
+
+	&:deep(.carousel__pagination-button) {
+
+		&::after {
+			--vc-pgn-width: 20px;
+			--vc-pgn-height: 5px;
+			border-radius: 4px;
+			transition: background-color $easeDefault;
+		}
+	}
+}
+
+.project__carousel--item {
+
+}
+
+.project__carousel--nav {
+
+}

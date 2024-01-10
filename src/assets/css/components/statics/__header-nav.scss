@@ -1,0 +1,39 @@
+.header__nav--list {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.header__nav--item {
+
+	&:not(:last-child) {
+		margin-right: 20px;
+	}
+}
+
+.header__nav--link {
+	font: 600 26px/1.2 $fontTitle;
+
+	&.router-link-exact-active, &.router-link-active {
+		color: $white;
+		cursor: default;
+		pointer-events: none;
+	}
+}
+
+@media (max-width: $mobileMax) {
+
+	.header__nav {
+		margin-bottom: -2px;
+	}
+
+	.header__nav--item {
+		&:not(:last-child) {
+			margin-right: 16px;
+		}
+	}
+
+	.header__nav--link {
+		font-size: 20px;
+	}
+}

@@ -1,0 +1,36 @@
+@font-face {
+	font-family: 'Magnat Head';
+	src: url('@/assets/fonts/magnat-head-bold.woff') format('woff'),
+	url('@/assets/fonts/magnat-head-bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Magnat Head';
+	src: url('@/assets/fonts/magnat-head-semi-bold.woff') format('woff'),
+	url('@/assets/fonts/magnat-head-semi-bold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+@font-face {
+	font-family: 'Magnat Text';
+	src: url('@/assets/fonts/magnat-text-regular.woff') format('woff'),
+	url('@/assets/fonts/magnat-text-regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Magnat Text';
+	src: url('@/assets/fonts/magnat-text-medium.woff') format('woff'),
+	url('@/assets/fonts/magnat-text-medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}

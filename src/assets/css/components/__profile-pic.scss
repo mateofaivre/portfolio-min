@@ -1,0 +1,17 @@
+.profile__pic {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 24px;
+	height: 24px;
+	margin: 0;
+
+	&:deep(.profile__pic--img) {
+		filter: grayscale(.7);
+		border-radius: 100%;
+	}
+
+	&:deep(.image--wrapper-cover) {
+		--aspect-ratio-wrapper: 1;
+	}
+}

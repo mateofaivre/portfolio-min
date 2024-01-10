@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "portfolio-c9cae"
+  },
+  "targets": {
+    "portfolio-c9cae": {
+      "hosting": {
+        "dev": [
+          "portfolio-c9cae"
+        ],
+        "prod": [
+          "portfolio-prod-mf"
+        ]
+      }
+    }
+  }
+}

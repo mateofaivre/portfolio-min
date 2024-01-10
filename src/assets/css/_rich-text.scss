@@ -1,0 +1,25 @@
+.rich__text {
+
+	p {
+
+		&:not(:last-child) {
+			margin-bottom: 28px;
+		}
+
+		strong {
+			font-weight: 600;
+		}
+	}
+
+	ul {
+		padding-left: 12px;
+
+		&:not(:last-child) {
+			margin-bottom: 28px;
+		}
+
+		li {
+			list-style: disc;
+		}
+	}
+}

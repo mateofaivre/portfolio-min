@@ -1,0 +1,62 @@
+
+.v-lazy-image {
+	opacity: 0;
+	filter: blur(1px);
+}
+
+.image--wrapper {
+	width: 100%;
+	--asepct-ratio: 16/9;
+	aspect-ratio: var(--width) / var(--height);
+
+	picture {
+		display: block;
+		border-radius: inherit;
+		aspect-ratio: var(--width) / var(--height);
+	}
+
+	&.image--wrapper-cover {
+		--aspect-ratio-wrapper: 16/9;
+		aspect-ratio: var(--aspect-ratio-wrapper);
+
+		picture {
+			aspect-ratio: var(--aspect-ratio-wrapper);
+		}
+
+		&:deep(.image--img) {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			aspect-ratio: var(--aspect-ratio-wrapper);
+		}
+	}
+
+	&:deep(.image--img) {
+		border-radius: inherit;
+		aspect-ratio: var(--width) / var(--height);
+
+		&.image--img-bg {
+			background-color: $grey;
+		}
+	}
+
+	&:deep(.v-lazy-image) {
+		transition: opacity $easeDefault, filter $easeDefault;
+
+		&:not(.v-lazy-image-loaded) {
+			filter: blur(1px);
+
+			&:not(.image--img-bg) {
+				opacity: 0;
+			}
+		}
+
+		&.v-lazy-image-loaded {
+			filter: blur(0);
+
+			&:not(.image--img-bg) {
+				opacity: 1;
+			}
+		}
+	}
+}

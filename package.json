@@ -1,0 +1,36 @@
+{
+  "name": "portfolio-min",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --host",
+    "devNotNetwork": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "deploy": "vite build && firebase deploy --only hosting",
+    "depdev": "vite build && firebase deploy --only hosting:dev",
+    "depprod": "vite build && firebase deploy --only hosting:prod"
+  },
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.11",
+    "axios": "^1.6.2",
+    "cash-dom": "^8.1.4",
+    "gsap": "npm:@gsap/shockingly@^3.11.3",
+    "stats-js": "^1.0.1",
+    "v-lazy-image": "^2.1.1",
+    "vue": "^3.2.38",
+    "vue-gtag": "^2.0.1",
+    "vue-router": "^4.1.5",
+    "vue-vimeo-player": "^1.1.2",
+    "vue3-carousel": "^0.3.1",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.3",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "vite": "^3.0.9",
+    "vite-svg-loader": "^4.0.0",
+    "vue-template-compiler": "^2.7.14",
+    "webpack": "^5.88.1"
+  }
+}

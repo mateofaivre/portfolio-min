@@ -1,0 +1,23 @@
+.about {
+	margin-bottom: 80px;
+}
+
+.about--title {
+	font: 600 32px / 1.2 $fontTitle;
+	margin-bottom: 10px;
+}
+
+.about--presentation {
+	font: 500 18px $font;
+}
+
+.about--presentation-link {
+	line-height: 1.875;
+	margin-top: -1px;
+}
+
+@media (max-width: $mobileMax) {
+	.about {
+		margin-bottom: 60px;
+	}
+}

@@ -1,0 +1,28 @@
+.projects__item--link {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+}
+
+.projects__item--icon {
+	width: 65px;
+	height: 65px;
+	margin-bottom: 8px;
+
+	&.image--wrapper-cover {
+		--aspect-ratio-wrapper: 1/1;
+	}
+
+	&:deep(.projects__item--icon--img) {
+		border: 1px solid $very_light_white;
+		border-radius: 10px;
+	}
+}
+
+.projects__item--name {
+	display: block;
+	text-align: center;
+	line-height: 1.3;
+}

@@ -1,0 +1,5 @@
+<svg viewBox="0 0 142 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.7556 28.5758C7.38965 28.5758 1.42358 22.5007 1.42358 15.0001C1.42358 7.49947 7.38965 1.42432 14.7556 1.42432" stroke="currentColor" class="semi__circle"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.7556 1.92432H127.244V0.924316H14.7556V1.92432ZM127.244 28.0758H14.7556V29.0758H127.244V28.0758Z" fill="currentColor" class="rect"/>
+    <path d="M127.244 1.42417C134.61 1.42417 140.576 7.49932 140.576 14.9999C140.576 22.5005 134.61 28.5757 127.244 28.5757" stroke="currentColor" class="semi__circle"/>
+</svg>
