@@ -1,13 +1,27 @@
 .header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	position: fixed;
+	z-index: $header_depth;
 	top: 0;
 	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	width: 100%;
 	padding: 20px;
-	z-index: $header_depth;
+}
+
+.header__link--fill {
+	transition: background-position $easeDefault;
+	color: transparent;
+	background-image: linear-gradient(to right, $white 50%, $light_white 50%);
+	background-position: 100%;
+	background-clip: text;
+	background-size: 200% 100%;
+
+	@include hover() {
+		color: transparent;
+		background-position: 0 100%;
+	}
 }
 
 @media (max-width: $mobileMax) {

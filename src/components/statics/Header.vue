@@ -1,23 +1,23 @@
 <template>
   <header id="header" class="header">
     <HeaderNav/>
-    <HeaderButtons/>
+    <HeaderLinks/>
   </header>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "@/assets/css/components/statics/__header.scss";
 </style>
 
 <script>
 import HeaderNav from "@/components/statics/HeaderNav.vue";
-import HeaderButtons from "@/components/statics/HeaderButtons.vue";
+import HeaderLinks from "@/components/statics/HeaderLinks.vue";
 
 
 export default {
   name:       "Header",
   components: {
-    HeaderButtons,
+    HeaderLinks,
     HeaderNav
   }
 }
