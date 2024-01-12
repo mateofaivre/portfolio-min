@@ -1,7 +1,7 @@
 <template>
   <div class="messages__multiples">
-    <MessageTitle v-bind:use_pp="false" v-bind:title="message.title"/>
-    <MessageClassic v-bind:message="message"/>
+    <MessageTitle :use_pp="false" v-bind:title="message.title"/>
+    <MessageClassic :message="message"/>
   </div>
 </template>
 
