@@ -13,21 +13,20 @@
 </style>
 
 <script>
-import ProfilePic from "@/components/ProfilePic.vue";
-import MessageButton from "@/components/MessageButton.vue";
-
+import ProfilePic from '@/components/ProfilePic.vue';
+import MessageButton from '@/components/MessageButton.vue';
 
 export default {
-  name:       "MessageClassic",
+  name: 'MessageClassic',
   components: {
     MessageButton,
     ProfilePic,
   },
-  computed:   {
+  computed: {
     profilePic() {
       return this.$store.state.options.data?.attributes?.profile_pic?.data?.attributes;
-    }
+    },
   },
-  props:      [ 'message' ]
-}
+  props: [ 'message' ],
+};
 </script>
