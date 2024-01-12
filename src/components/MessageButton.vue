@@ -1,9 +1,7 @@
 <template>
-  <div class="message__content message__content--button">
-    <router-link :to="link.url" :class="className ? `message__content--button-link ${className}` : 'message__content--button-link'" :target="link.target_blank ? '_blank' : '_self'">
-      {{ link.title }}
-    </router-link>
-  </div>
+  <router-link :to="link.url" :class="className ? `btn btn--white message__content message__content--button ${className}` : 'btn btn--white message__content message__content--button'" :target="link.target_blank ? '_blank' : '_self'">
+    {{ link.title }}
+  </router-link>
 </template>
 
 <style scoped lang="scss">
@@ -11,18 +9,17 @@
 </style>
 
 <script>
-
 export default {
-  name:  "MessageButton",
+  name: 'MessageButton',
   props: {
-    link:      {
-      type:     Object,
-      required: true
+    link: {
+      type: Object,
+      required: true,
     },
     className: {
-      type:     String,
-      required: false
-    }
-  }
-}
+      type: String,
+      required: false,
+    },
+  },
+};
 </script>

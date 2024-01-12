@@ -38,7 +38,7 @@ app.use( VueGtag, {
 
 app.directive( 'add-arrow-link', {
 	mounted( el ) {
-		let links = el.querySelectorAll( '.rich__text a:not(.message__content--button-link)' );
+		let links = el.querySelectorAll( '.rich__text a:not(.message__content--button)' );
 
 		links.forEach( ( link ) => {
 			const nextNode = link.nextSibling;

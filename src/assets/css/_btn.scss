@@ -1,0 +1,17 @@
+a.btn, button.btn {
+	transition: color $easeDefault, background-color $easeDefault;
+
+	&.btn--link {
+		@extend a;
+	}
+
+	&.btn--white {
+		background-color: $off_white;
+		color: $black;
+
+		@include hover() {
+			color: $white;
+			background-color: $grey;
+		}
+	}
+}

@@ -2,7 +2,6 @@
 /* -------- Global -------- */
 /****************************/
 
-
 html {
 	box-sizing: border-box;
 	min-height: $contentMinH;
@@ -22,37 +21,37 @@ html {
 }
 
 *, *::before, *::after {
+	box-sizing: inherit;
 	margin: 0;
 	padding: 0;
 	border: 0;
 	outline: none;
-	box-sizing: inherit;
 }
 
 ::selection {
-	background: $highlight;
 	color: $white;
+	background: $highlight;
 	text-shadow: none;
 }
 
 ::-moz-selection {
-	background: $highlight;
 	color: $white;
+	background: $highlight;
 	text-shadow: none;
 }
 
 body {
+	font: 400 16px / 1.65 $font;
 	display: flex;
-	width: 100%;
-	font: 400 16px / 1.875 $font;
-	letter-spacing: 0.01em;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	color: $white;
-	background-color: $black;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	width: 100%;
 	min-height: calc($contentMinH - $margin_content * 2);
+	letter-spacing: 0.008em;
+	color: $white;
+	background-color: $black;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	.flx_preview & {
 		overflow-y: hidden;
@@ -62,13 +61,9 @@ body {
 a {
 	display: block;
 	width: fit-content;
-	text-decoration: none;
-}
-
-a {
-	display: block;
-	color: $light_white;
 	transition: color $easeDefault;
+	text-decoration: none;
+	color: $light_white;
 
 	@include hover() {
 		color: $white;
@@ -78,18 +73,17 @@ a {
 		position: relative;
 
 		&::before {
-			content: "";
 			position: absolute;
-			bottom: 0.46em;
-			left: 0;
+			bottom: 0.4em;
+			left: 50%;
 			width: 100%;
 			height: 1px;
+			content: "";
+			transform: translateX(-50%);
 			background-color: currentColor;
 		}
 	}
 }
-
-
 
 svg {
 	display: block;
@@ -97,10 +91,9 @@ svg {
 	height: 100%;
 }
 
-
 .visibility__hidden {
-	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
+	opacity: 0;
 }
 
