@@ -1,6 +1,4 @@
 <template>
-  <!--  <Loader/>-->
-
   <Header/>
 
   <router-view v-slot="{ Component, route }">
@@ -12,14 +10,12 @@
 </template>
 
 <script>
-import Loader from '@/components/Loader.vue';
 import Header from '@/components/statics/Header.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    Loader,
   },
   created() {
     this.$store.commit( 'setLoading', true );
