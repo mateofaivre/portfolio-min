@@ -7,7 +7,7 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	padding: 20px;
+	padding: 22px 20px 20px 20px;
 }
 
 .header__link--fill {
@@ -26,7 +26,12 @@
 
 @media (max-width: $mobileMax) {
 	.header {
-		padding: 15px;
+		padding: 22px 15px 20px 15px;
 		background-color: $black;
+		justify-content: flex-start;
+	}
+
+	.header__links {
+		margin-left: 18px;
 	}
 }
