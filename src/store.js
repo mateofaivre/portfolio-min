@@ -7,6 +7,7 @@ const API_URL = import.meta.env.VITE_STRAPI_API_URL;
 
 export default createStore( {
 	state:     {
+		isFirstLoad:   true,
 		isLoading:   true,
 		fontsLoaded: false,
 		home:        [],
@@ -15,6 +16,9 @@ export default createStore( {
 		options:     []
 	},
 	mutations: {
+		setFirstLoading( state, status ) {
+			state.isFirstLoad = status;
+		},
 		setLoading( state, status ) {
 			state.isLoading = status;
 		},
@@ -51,7 +55,7 @@ export default createStore( {
 			}
 		},
 		fetchHome( { commit } ) {
-			axios.get( `${API_URL}/home?populate=deep` )
+			axios.get( `${API_URL}/home?locale=${languageLocale}&populate=deep` )
 				.then( response => {
 					commit( 'setHome', response.data );
 				} )
@@ -61,7 +65,7 @@ export default createStore( {
 				} );
 		},
 		fetchProjects( { commit } ) {
-			axios.get( `${API_URL}/project?populate=deep` )
+			axios.get( `${API_URL}/project?locale=${languageLocale}&populate=deep` )
 				.then( response => {
 					commit( 'setProjects', response.data );
 				} )
@@ -71,7 +75,7 @@ export default createStore( {
 				} );
 		},
 		fetchProject( { commit }, projectSlug ) {
-			axios.get( `${API_URL}/project?populate=deep` )
+			axios.get( `${API_URL}/project?locale=${languageLocale}&populate=deep` )
 				.then( response => {
 					const projectItems         = response.data.data?.attributes?.projects_item;
 
@@ -99,7 +103,7 @@ export default createStore( {
 				} );
 		},
 		fetchOptions( { commit } ) {
-			axios.get( `${API_URL}/option?populate=deep` )
+			axios.get( `${API_URL}/option?locale=${languageLocale}&populate=deep` )
 				.then( response => {
 					commit( 'setOptions', response.data );
 				} )

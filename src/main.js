@@ -20,6 +20,12 @@ globalThis.SplitText = SplitText;
 globalThis.ScrollTrigger = ScrollTrigger;
 globalThis.Observer = Observer;
 
+if ( window.navigator.language.includes( 'fr' ) || window.navigator.language.includes( 'FR' )) {
+	globalThis.languageLocale = 'fr';
+} else {
+	globalThis.languageLocale = 'en';
+}
+
 const app = createApp( App );
 
 app.use( router );

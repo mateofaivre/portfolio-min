@@ -9,36 +9,27 @@ const router = createRouter( {
 	routes: [
 		{
 			path: '/',
-			name: 'Home',
+			name: window.navigator.language === 'fr' ? 'Accueil' : 'Home',
 			component: HomeView,
 		},
 		{
 			path: '/projects',
-			name: 'Projects',
+			name: window.navigator.language === 'fr' ? 'Projets' : 'Projects',
 			component: ProjectsView,
 		},
 		{
 			path: '/projects/:slug',
-			name: 'Project',
+			name: window.navigator.language === 'fr' ? 'Projet' : 'Project',
 			component: ProjectView,
 			ignoreInMenu: true,
 		},
-
-		// {
-		// 	path: '/about',
-		// 	name: 'about',
-		// 	// route level code-splitting
-		// 	// this generates a separate chunk (About.[hash].js) for this route
-		// 	// which is lazy-loaded when the route is visited.
-		// 	// component: () => import('../views/AboutView.vue')
-		// },
 	],
 } );
 
 router.beforeEach( ( to, from, next ) => {
 	store.commit( 'setLoading', true );
 	next();
-	document.querySelector('#loader').classList.remove('loader--hidden');
+	document.querySelector( '#loader' ).classList.remove( 'loader--hidden' );
 } );
 
 router.afterEach( ( to, from ) => {
@@ -46,7 +37,15 @@ router.afterEach( ( to, from ) => {
 		store.commit( 'setProject', null );
 	}
 	store.commit( 'setLoading', false );
-	document.querySelector('#loader').classList.add('loader--hidden');
+
+	const delayDuration = store.state.isFirstLoad ? 0.3 : 0;
+	gsap.delayedCall( delayDuration, () => {
+		document.querySelector( '#loader' ).classList.add( 'loader--hidden' );
+	} );
+
+	if ( store.state.isFirstLoad ) {
+		store.commit( 'setFirstLoading', false );
+	}
 } );
 
 export default router;
