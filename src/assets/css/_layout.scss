@@ -17,23 +17,23 @@ body {
 
 	&::before {
 		top: 0;
-		background: linear-gradient(0deg, rgba(7, 7, 7, 0) 0%, #070707 100%);
+		background: linear-gradient(0deg, rgba($black, 0) 1%, $black 100%);
 	}
 
 	&::after {
 		bottom: 0;
-		background: linear-gradient(0deg, #{$black} 0%, rgba(5, 5, 5, 0) 100%);
+		background: linear-gradient(0deg, #{$black} 1%, rgba($black, 0) 100%);
 	}
 }
 
 @media (max-width: $mobileMax) {
 	body {
 		&::before, &::after {
-			height: 65px;
+			height: 50px;
 		}
 
 		&::before {
-			top: 52px;
+			top: 68px;
 		}
 	}
 
