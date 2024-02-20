@@ -24,7 +24,7 @@
 
     <div v-else-if="projectDetailMedias || projectDetailEmbed" class="project__media--wrapper">
       <Image v-if="projectDetailMedias && projectDetailMedias[0].mediaType !== 'video'" :image="projectDetailMedias[0]"/>
-      <vueVimeoPlayer v-if="projectDetailEmbed" ref="player" video-id="900934617" class="project__media--embed" :player-width="1920" :player-height="1080" :options='{autoplay: true, muted: true, dnt: true, loop: true, title: false, pip: false }'/>
+      <vueVimeoPlayer v-if="projectDetailEmbed" ref="player" :video-id="projectDetailEmbed" class="project__media--embed" :player-width="1920" :player-height="1080" :options='{autoplay: true, muted: true, dnt: true, loop: true, title: false, pip: false }'/>
     </div>
 
 
