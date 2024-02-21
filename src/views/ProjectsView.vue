@@ -3,7 +3,7 @@
 
     <div class="projects__items--wrapper">
       <div class="projects__items--top">
-        <LinkArrow :link="{url: '/', title: 'Home', className: 'projects__items--back' }"/>
+        <LinkArrow :link="{url: '/', title: getNavLabels.home, className: 'projects__items--back' }"/>
 
         <div class="projects__items--filter-btns" v-if="projectItemsTypes">
           <button
@@ -18,7 +18,6 @@
           </button>
         </div>
       </div>
-
       <div class="projects__items" v-if="projectsItems">
         <div class="projects__item" v-for="projectItem in projectsItems">
           <ProjectsItem :projectItem="projectItem"/>
@@ -35,32 +34,31 @@
 
 
 <script>
-import ProjectsItem from "@/components/partials/ProjectsItem.vue";
-import { slugify } from "@/assets/js/utils/Helpers";
-import Arrow from "@/assets/svg/arrow.svg";
-import LinkArrow from "@/components/partials/LinkArrow.vue";
+import ProjectsItem from '@/components/partials/ProjectsItem.vue';
+import { slugify } from '@/assets/js/utils/Helpers';
+import Arrow from '@/assets/svg/arrow.svg';
+import LinkArrow from '@/components/partials/LinkArrow.vue';
 
-
-const itemHiddenClass    = 'projects__item--hidden';
+const itemHiddenClass = 'projects__item--hidden';
 const loaderVisibleClass = 'projects__items--loader_visible';
 
 export default {
-  name:       "ProjectsView",
+  name: 'ProjectsView',
   components: {
     LinkArrow,
     Arrow,
-    ProjectsItem
+    ProjectsItem,
   },
   data() {
     return {
-      activeType: ''
-    }
+      activeType: '',
+    };
   },
   methods: {
     setGridHeight() {
       const projectsGrid = this.$el.querySelector( '.projects__items' );
-      const gridHeight   = projectsGrid.getBoundingClientRect().height;
-      projectsGrid.style.setProperty( '--grid-height', `${gridHeight}px` );
+      const gridHeight = projectsGrid.getBoundingClientRect().height;
+      projectsGrid.style.setProperty( '--grid-height', `${ gridHeight }px` );
     },
 
     sortArray( array ) {
@@ -78,7 +76,7 @@ export default {
     },
 
     toggleLoader() {
-      this.$el.querySelector( '.projects__items' ).classList.toggle( loaderVisibleClass )
+      this.$el.querySelector( '.projects__items' ).classList.toggle( loaderVisibleClass );
     },
 
     filterProjectItems( clickedItemType ) {
@@ -89,27 +87,26 @@ export default {
           0.3, () => {
             this.$el.querySelectorAll( '.projects__item' ).forEach( item => {
               if ( clickedItemType ) {
-                const itemTypes       = JSON.parse( item.querySelector( '.projects__item--link' ).getAttribute( 'data-types' ) );
+                const itemTypes = JSON.parse( item.querySelector( '.projects__item--link' ).getAttribute( 'data-types' ) );
                 const isItemDisplayed = itemTypes.includes( clickedItemType );
-                item.classList.toggle( itemHiddenClass, !isItemDisplayed );
+                item.classList.toggle( itemHiddenClass, ! isItemDisplayed );
               } else {
                 item.classList.remove( itemHiddenClass );
               }
             } );
-          }
-      )
+          },
+      );
 
       gsap.delayedCall(
           0.4, () => {
             this.toggleLoader();
-          }
-      )
-
+          },
+      );
 
     },
 
     filterItems( event ) {
-      const clickedBtn      = event.currentTarget;
+      const clickedBtn = event.currentTarget;
       const clickedItemType = clickedBtn.getAttribute( 'data-type' );
 
       if ( this.activeType === clickedItemType ) {
@@ -119,7 +116,7 @@ export default {
       }
 
       this.filterProjectItems( this.activeType );
-    }
+    },
   },
   created() {
     this.$store.dispatch( 'fetchProjects' );
@@ -130,6 +127,12 @@ export default {
   },
 
   computed: {
+    getNavLabels() {
+      return {
+        home: languageLocale === 'fr' ? 'Accueil' : 'Home',
+      };
+    },
+
     projectsItems() {
       return this.$store.state.projects.data?.attributes.projects_item;
     },
@@ -137,12 +140,12 @@ export default {
       const projectItemsTypes = [];
       this.$store.state.projects.data?.attributes.projects_item.forEach( ( projectItem ) => {
         if ( projectItem.project_types !== null ) {
-          projectItem.project_types.types.forEach( ( projectType ) => {
+          projectItem.project_types.forEach( ( projectType ) => {
             const projectTypeObj = {
-              name:  slugify( projectType ),
-              label: projectType
+              name: slugify( projectType ),
+              label: projectType,
             };
-            if ( !projectItemsTypes.find( obj => obj.name === projectTypeObj.name ) ) {
+            if ( ! projectItemsTypes.find( obj => obj.name === projectTypeObj.name ) ) {
               projectItemsTypes.push( projectTypeObj );
             }
 
@@ -156,7 +159,7 @@ export default {
     },
     projectsTypesNames() {
       return this.projectItemsTypes.map( objet => objet.name );
-    }
-  }
-}
+    },
+  },
+};
 </script>

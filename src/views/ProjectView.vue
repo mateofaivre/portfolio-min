@@ -1,10 +1,10 @@
 <template>
   <main class="project" v-if="projectDetail">
     <div class="project__nav">
-      <LinkArrow :link="{url: '/projects', title: 'Projects', className: 'project__nav--back' }"/>
+      <LinkArrow :link="{url: '/' + slugify(getNavLabels.back), title: getNavLabels.back, className: 'project__nav--back' }"/>
       <div class="project__nav--others">
-        <LinkArrow :link="{url: '/projects/' + slugify(prevProject.name), title: 'Prev', className: 'project__nav--prev', chevron: {direction: 'left'} }"/>
-        <LinkArrow :link="{url: '/projects/' + slugify(nextProject.name), title: 'Next', className: 'project__nav--next', chevron: {direction: 'right'} }"/>
+        <LinkArrow :link="{url: '/' + slugify(getNavLabels.back) + '/' + slugify(prevProject.name), title: getNavLabels.prev, className: 'project__nav--prev', chevron: {direction: 'left'} }"/>
+        <LinkArrow :link="{url: '/' + slugify(getNavLabels.back) + '/' + slugify(nextProject.name), title: getNavLabels.next, className: 'project__nav--next', chevron: {direction: 'right'} }"/>
       </div>
     </div>
 
@@ -84,6 +84,14 @@ export default {
     slugify,
   },
   computed: {
+    getNavLabels() {
+      return {
+        back: languageLocale === 'fr' ? 'Projets' : 'Projects',
+        prev: languageLocale === 'fr' ? 'Précédent' : 'Prev',
+        next: languageLocale === 'fr' ? 'Suivant' : 'Next',
+      };
+    },
+
     projectDetail() {
       if ( this.$store.state.project && this.$store.state.project.project && typeof ( this.$store.state.project.project.link ) != 'undefined' ) {
         return this.$store.state.project.project;

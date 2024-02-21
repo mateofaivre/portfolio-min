@@ -9,17 +9,20 @@ const router = createRouter( {
 	routes: [
 		{
 			path: '/',
-			name: window.navigator.language === 'fr' ? 'Accueil' : 'Home',
+			name: 'Home',
+			menuName: window.navigator.language === 'fr' ? 'Accueil' : 'Home',
 			component: HomeView,
 		},
 		{
-			path: '/projects',
-			name: window.navigator.language === 'fr' ? 'Projets' : 'Projects',
+			path: window.navigator.language === 'fr' ? '/projets' : '/projects',
+			name: 'Projects',
+			menuName: window.navigator.language === 'fr' ? 'Projets' : 'Projects',
 			component: ProjectsView,
 		},
 		{
-			path: '/projects/:slug',
-			name: window.navigator.language === 'fr' ? 'Projet' : 'Project',
+			path: window.navigator.language === 'fr' ? '/projets/:slug' : '/projects/:slug',
+			name: 'Project',
+			menuName: window.navigator.language === 'fr' ? 'Projet' : 'Project',
 			component: ProjectView,
 			ignoreInMenu: true,
 		},
