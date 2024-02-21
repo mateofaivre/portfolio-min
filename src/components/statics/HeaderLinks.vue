@@ -4,7 +4,7 @@
       <a :href="headerLink.link.url" :target="headerLink.link.target_blank ? '_blank' : '_self'" class="header__link header__link--fill" :data-text-to-copy="headerLink.text_to_copy && headerLink.text_to_copy.length > 0 ? headerLink.text_to_copy : null" @click="event => headerLink.text_to_copy && copyToClipboard(event)">
         {{ headerLink.link.title }}
       </a>
-      <div v-if="headerLink.text_to_copy && headerLink.text_to_copy.length > 0" class="header__link--copied">Email copied</div>
+      <div v-if="headerLink.text_to_copy && headerLink.text_to_copy.length > 0" class="header__link--copied">{{ getGlobalThis().languageLocale === 'fr' ? 'Adresse mail copiée' : 'Email address copied' }}</div>
     </li>
   </ul>
 </template>
@@ -15,6 +15,7 @@
 
 <script>
 import SvgIcon from '@/components/SvgIcon.vue';
+import { getGlobalThis } from '@vue/shared';
 
 export default {
   name: 'HeaderLinks',
@@ -25,6 +26,7 @@ export default {
     },
   },
   methods: {
+    getGlobalThis,
     copyToClipboard( event ) {
       if ( window.matchMedia( '(max-width: 961px)' ).matches ) {
         return;
