@@ -3,7 +3,7 @@ import Image from "@/components/partials/Image.vue";
 </script>
 
 <template>
-  <router-link class="projects__item--link" :to="{ name: 'Project', params: { slug: slugify(projectItem.name) }}" :key="$route.fullPath" :data-types="projectItem.project_types ? JSON.stringify(slugify(projectItem.project_types.types, true)) : null">
+  <router-link class="projects__item--link" :to="{ name: 'Project', params: { slug: slugify(projectItem.name) }}" :key="$route.fullPath" :data-types="projectItem.project_types ? JSON.stringify(slugify(projectItem.project_types, true)) : null">
     <Image :image="projectItemIcon" v-if="projectItemIcon" />
     <span class="projects__item--name" v-if="projectItem.name">{{ projectItem.name }}</span>
   </router-link>
