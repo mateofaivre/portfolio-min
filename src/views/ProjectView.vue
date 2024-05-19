@@ -86,9 +86,9 @@ export default {
   computed: {
     getNavLabels() {
       return {
-        back: languageLocale === 'fr' ? 'Projets' : 'Projects',
-        prev: languageLocale === 'fr' ? 'Précédent' : 'Prev',
-        next: languageLocale === 'fr' ? 'Suivant' : 'Next',
+        back: this.$lang === 'fr' ? 'Projets' : 'Projects',
+        prev: this.$lang === 'fr' ? 'Précédent' : 'Prev',
+        next: this.$lang === 'fr' ? 'Suivant' : 'Next',
       };
     },
 

@@ -4,6 +4,7 @@ import router from './router';
 import $ from 'cash-dom';
 import store from './store';
 import VueGtag from 'vue-gtag';
+import i18n from './i18n';
 
 // Gsap and plugins
 import gsap from 'gsap';
@@ -20,14 +21,9 @@ globalThis.SplitText = SplitText;
 globalThis.ScrollTrigger = ScrollTrigger;
 globalThis.Observer = Observer;
 
-if ( window.navigator.language.includes( 'fr' ) || window.navigator.language.includes( 'FR' )) {
-	globalThis.languageLocale = 'fr';
-} else {
-	globalThis.languageLocale = 'en';
-}
-
 const app = createApp( App );
 
+app.use( i18n );
 app.use( router );
 app.use( store );
 
@@ -39,6 +35,9 @@ app.use( VueGtag, {
 	appName: 'Portfolio Min',
 	pageTrackerScreenviewEnabled: true,
 }, router );
+
+store.dispatch( 'setLang', i18n.global.locale );
+app.config.globalProperties.$lang = i18n.global.locale;
 
 // store.dispatch( 'loadFonts' );
 

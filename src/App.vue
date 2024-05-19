@@ -18,8 +18,14 @@ export default {
     Header,
   },
   created() {
+    document.documentElement.lang = this.$lang;
     this.$store.commit( 'setLoading', true );
     this.$store.dispatch( 'fetchOptions' );
+  },
+  watch: {
+    '$lang'( newLocale ) {
+      document.documentElement.lang = newLocale;
+    },
   },
 };
 </script>

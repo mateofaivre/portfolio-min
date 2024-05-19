@@ -1,21 +1,24 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
-import { slugify } from "@/assets/js/utils/Helpers";
-
+import { slugify } from '@/assets/js/utils/Helpers';
 
 const API_URL = import.meta.env.VITE_STRAPI_API_URL;
 
 export default createStore( {
-	state:     {
-		isFirstLoad:   true,
-		isLoading:   true,
+	state: {
+		isFirstLoad: true,
+		isLoading: true,
 		fontsLoaded: false,
-		home:        [],
-		projects:    [],
-		project:     [],
-		options:     []
+		home: [],
+		projects: [],
+		project: [],
+		options: [],
+		lang: 'en',
 	},
 	mutations: {
+		setLang( state, lang ) {
+			state.lang = lang;
+		},
 		setFirstLoading( state, status ) {
 			state.isFirstLoad = status;
 		},
@@ -32,21 +35,24 @@ export default createStore( {
 			state.projects = projects;
 		},
 		setProject( state, projects ) {
-			state.project     = projects;
+			state.project = projects;
 		},
 		setOptions( state, options ) {
 			state.options = options;
-		}
+		},
 	},
-	actions:   {
+	actions: {
+		setLang( { commit }, lang ) {
+			commit( 'setLang', lang );
+		},
 		loadFonts( { commit } ) {
 			if ( 'fonts' in document ) {
 				Promise.race( [
 					Promise.all( [
-						document.fonts.load( '16px Magnat Text' )
+						document.fonts.load( '16px Magnat Text' ),
 						// document.fonts.load( '16px Magnat Head' )
 					] ),
-					new Promise( resolve => setTimeout( resolve, 8000 ) ) // Avoid to stay blocked if a font is not available
+					new Promise( resolve => setTimeout( resolve, 8000 ) ), // Avoid to stay blocked if a font is not available
 				] ).then( () => {
 					commit( 'setFontsLoaded', true );
 				} ).catch( () => {
@@ -54,8 +60,11 @@ export default createStore( {
 				} );
 			}
 		},
-		fetchHome( { commit } ) {
-			axios.get( `${API_URL}/home?locale=${languageLocale}&populate=deep` )
+		fetchHome( {
+					   commit,
+					   state,
+				   } ) {
+			axios.get( `${ API_URL }/home?locale=${ state.lang }&populate=deep` )
 				.then( response => {
 					commit( 'setHome', response.data );
 				} )
@@ -64,8 +73,11 @@ export default createStore( {
 					commit( 'setHome', [] );
 				} );
 		},
-		fetchProjects( { commit } ) {
-			axios.get( `${API_URL}/project?locale=${languageLocale}&populate=deep` )
+		fetchProjects( {
+						   commit,
+						   state,
+					   } ) {
+			axios.get( `${ API_URL }/project?locale=${ state.lang }&populate=deep` )
 				.then( response => {
 					commit( 'setProjects', response.data );
 				} )
@@ -74,14 +86,17 @@ export default createStore( {
 					commit( 'setProjects', [] );
 				} );
 		},
-		fetchProject( { commit }, projectSlug ) {
-			axios.get( `${API_URL}/project?locale=${languageLocale}&populate=deep` )
+		fetchProject( {
+						  commit,
+						  state,
+					  }, projectSlug ) {
+			axios.get( `${ API_URL }/project?locale=${ state.lang }&populate=deep` )
 				.then( response => {
-					const projectItems         = response.data.data?.attributes?.projects_item;
+					const projectItems = response.data.data?.attributes?.projects_item;
 
 					const projects = {};
 
-					projects.project  = projectItems.find( item => slugify( item.name ) === projectSlug );
+					projects.project = projectItems.find( item => slugify( item.name ) === projectSlug );
 					const specificProjectIndex = projectItems.indexOf( projects.project );
 
 					if ( specificProjectIndex > 0 ) {
@@ -102,8 +117,11 @@ export default createStore( {
 					commit( 'setProject', {} );
 				} );
 		},
-		fetchOptions( { commit } ) {
-			axios.get( `${API_URL}/option?locale=${languageLocale}&populate=deep` )
+		fetchOptions( {
+						  commit,
+						  state,
+					  } ) {
+			axios.get( `${ API_URL }/option?locale=${ state.lang }&populate=deep` )
 				.then( response => {
 					commit( 'setOptions', response.data );
 				} )
@@ -111,6 +129,6 @@ export default createStore( {
 					console.error( error );
 					commit( 'setOptions', [] );
 				} );
-		}
-	}
+		},
+	},
 } );

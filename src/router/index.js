@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue';
 import ProjectsView from '../views/ProjectsView.vue';
 import ProjectView from '../views/ProjectView.vue';
 import store from '@/store';
+import i18n from '@/i18n';
 
 const router = createRouter( {
 	history: createWebHistory( import.meta.env.BASE_URL ),
@@ -10,19 +11,19 @@ const router = createRouter( {
 		{
 			path: '/',
 			name: 'Home',
-			menuName: window.navigator.language === 'fr' ? 'Accueil' : 'Home',
+			menuName: i18n.global.locale === 'fr' ? 'Accueil' : 'Home',
 			component: HomeView,
 		},
 		{
-			path: window.navigator.language === 'fr' ? '/projets' : '/projects',
+			path: i18n.global.locale === 'fr' ? '/projets' : '/projects',
 			name: 'Projects',
-			menuName: window.navigator.language === 'fr' ? 'Projets' : 'Projects',
+			menuName: i18n.global.locale === 'fr' ? 'Projets' : 'Projects',
 			component: ProjectsView,
 		},
 		{
-			path: window.navigator.language === 'fr' ? '/projets/:slug' : '/projects/:slug',
+			path: i18n.global.locale === 'fr' ? '/projets/:slug' : '/projects/:slug',
 			name: 'Project',
-			menuName: window.navigator.language === 'fr' ? 'Projet' : 'Project',
+			menuName: i18n.global.locale === 'fr' ? 'Projet' : 'Project',
 			component: ProjectView,
 			ignoreInMenu: true,
 		},

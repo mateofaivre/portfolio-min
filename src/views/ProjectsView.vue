@@ -129,7 +129,7 @@ export default {
   computed: {
     getNavLabels() {
       return {
-        home: languageLocale === 'fr' ? 'Accueil' : 'Home',
+        home: this.$lang === 'fr' ? 'Accueil' : 'Home',
       };
     },
 
