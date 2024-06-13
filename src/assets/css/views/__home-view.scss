@@ -1,6 +1,6 @@
 .home {
-	margin: 0 auto;
-	max-width: 490px;
+	max-width: $content_width;
+	margin: 0 auto 0 auto;
 	padding-top: 120px;
 	padding-bottom: 120px;
 
@@ -10,12 +10,13 @@
 }
 
 .message__item {
-	margin-bottom: 40px;
+	&:not(:last-child) {
+		margin-bottom: 40px;
+	}
 }
 
 @media (max-width: $mobileMax) {
 	.home {
-		max-width: 100%;
 		padding-top: 120px;
 		padding-bottom: 70px;
 	}

@@ -37,6 +37,12 @@ $margin_width: 20px;
 $margin_content: 40px;
 $padding_content: 2.6vw;
 
+:root {
+
+}
+
+$content_width: var(--content_width);
+
 // -------- Eases --------
 
 :root {
@@ -75,9 +81,11 @@ $smallMax: 500px;
 :root {
 	@media (min-width: $mobileMin) {
 		--padding: 30px;
+		--content_width: 490px;
 	}
 
 	@media (max-width: $mobileMax) {
 		--padding: 15px;
+		--content_width: 100%;
 	}
 }

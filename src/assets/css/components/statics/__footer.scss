@@ -1,0 +1,37 @@
+.footer {
+	padding-top: 80px;
+}
+
+.footer--inner {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	max-width: $content_width;
+	margin: 0 auto;
+	text-align: center;
+	color: $light_grey;
+}
+
+.footer--thanks {
+	font-size: 14px;
+	line-height: 20px;
+
+	strong {
+		color: $light_white;
+	}
+}
+
+.footer--signature {
+	margin-top: 25px;
+	margin-bottom: 25px;
+
+	svg {
+		width: 120px;
+	}
+}
+
+.footer--copyright {
+	font-size: 12px;
+	line-height: 17px;
+}

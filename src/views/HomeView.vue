@@ -7,6 +7,7 @@
         <MessageClassic v-else v-bind:message="message"/>
       </div>
     </section>
+    <Footer v-if="footer"/>
   </main>
 </template>
 
@@ -15,28 +16,32 @@
 </style>
 
 <script>
-import MessagesMultiples from "@/components/MessagesMultiples.vue";
-import MessageClassic from "@/components/MessageClassic.vue";
-import About from "@/components/About.vue";
-
+import MessagesMultiples from '@/components/MessagesMultiples.vue';
+import MessageClassic from '@/components/MessageClassic.vue';
+import About from '@/components/About.vue';
+import Footer from '@/components/statics/Footer.vue';
 
 export default {
-  name:       "Home",
+  name: 'Home',
   components: {
+    Footer,
     About,
     MessageClassic,
-    MessagesMultiples
+    MessagesMultiples,
   },
-  computed:   {
+  computed: {
     messages() {
       return this.$store.state.home.data?.attributes.messages;
     },
     about() {
       return this.$store.state.home.data?.attributes.about;
-    }
+    },
+    footer() {
+      return this.$store.state.options.data?.attributes?.footer;
+    },
   },
   created() {
     this.$store.dispatch( 'fetchHome' );
-  }
-}
+  },
+};
 </script>
