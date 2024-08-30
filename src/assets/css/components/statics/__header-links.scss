@@ -16,6 +16,13 @@
 
 .header__link {
 	font: 600 26px/1.2 $fontTitle;
+
+	.link__external--arrow {
+		margin-left: 10px;
+		margin-top: 2px;
+		width: 16px;
+		height: 16px;
+	}
 }
 
 .header__link--copied {

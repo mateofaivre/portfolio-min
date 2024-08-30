@@ -1,11 +1,11 @@
 <template>
   <router-link v-if="useRouterLink" :to="link.url" :class="'link__external ' +className">
     {{ link.title }}
-    <Arrow/>
+    <Arrow class="link__external--arrow"/>
   </router-link>
   <a v-else :href="link.url" :target="link.target_blank ? '_blank' : '_self'" :class="'link__external ' + className">
     {{ link.title }}
-    <Arrow/>
+    <Arrow class="link__external--arrow"/>
   </a>
 </template>
 

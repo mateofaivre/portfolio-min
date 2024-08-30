@@ -1,0 +1,31 @@
+.button__copy {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	svg {
+		width: 20px;
+		height: 20px;
+		margin-top: -1px;
+		margin-left: 10px;
+		transition: opacity $easeDefault;
+		transition-delay: 0.1s;
+		transform-origin: left;
+		opacity: 0;
+		color: $white;
+	}
+
+	$copy-svg-path: '';
+
+	@include hover {
+		cursor: url('@/assets/svg/copy.svg'), auto;
+
+		svg {
+			opacity: 1;
+		}
+	}
+}
+
+@media (max-width: $mobileMax) {
+
+}
